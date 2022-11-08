@@ -2,4 +2,6 @@
 - name: Clone a repo
   git:
     repo: https://github.com/taekang1618/invisible_ai_ct.git
-    dest: /home/ubuntu
+    dest: /home/ubuntu/git/
+    clone: yes
+    update: yes

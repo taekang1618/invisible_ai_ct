@@ -6,7 +6,7 @@
     shell: /bin/false
     system: no
     createhome: no
-    become_user: root
+  become_user: root
 
 - name: Create directory
   file:
@@ -27,12 +27,16 @@
 - name: Copy file
   copy:
     src: /home/ubuntu/prometheus-2.39.1.linux-amd64/prometheus
+    remote_src: yes
     dest: /usr/local/bin/
+  become_user: root
 
 - name: Copy file
   copy:
     src: /home/ubuntu/prometheus-2.39.1.linux-amd64/promtool
+    remote_src: yes
     dest: /usr/local/bin/
+  become_user: root
 
 - name: Change file permission
   file:
@@ -51,11 +55,13 @@
   copy:
     src: /home/ubuntu/prometheus-2.39.1.linux-amd64/consoles
     dest: /etc/prometheus
+    remote_src: yes
 
 - name: Copy file
   copy:
     src: /home/ubuntu/prometheus-2.39.1.linux-amd64/console_libraries
     dest: /etc/prometheus
+    remote_src: yes
 
 - name: Change file permission
   file:
@@ -81,8 +87,9 @@
 
 - name: Copy file
   copy:
-    src: /home/ubuntu/invisible_ai_ct/roles/prometheus/files/prometheus.yml
+    src: /home/ubuntu/git/roles/prometheus/files/prometheus.yml
     dest: /etc/prometheus/prometheus.yml
+    remote_src: yes
 
 - name: Change file permission
   file:
@@ -92,8 +99,9 @@
 
 - name: Copy file
   copy:
-    src: /home/ubuntu/invisible_ai_ct/roles/prometheus/files/prometheus.service
+    src: /home/ubuntu/git/roles/prometheus/files/prometheus.service
     dest: /etc/systemd/system/prometheus.service
+    remote_src: yes
 
 - name: Start prometheus
   systemd:

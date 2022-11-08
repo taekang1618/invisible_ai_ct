@@ -3,8 +3,6 @@
   hosts: localhost
   gather_facts: False
   tasks:
-  - debug:
-      msg: "access key: {{ lookup('env', 'AWS_ACCESS_KEY') }}"
   - name: Launch instance
     ec2_instance:
       aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
@@ -15,6 +13,8 @@
       image_id: ami-017fecd1353bcc96e
       wait: true
       region: us-west-2
+      tags:
+        Name: prometheus-grafana-1
     register: ec2
   - name: Print all ec2 variables
     debug: var=ec2
@@ -35,9 +35,9 @@
   hosts: ec2_hosts
   become: true
   roles:
-    - ubuntu_update
-    - github
-    - nginx
+#    - ubuntu_update
+#    - github
+#    - nginx
     - prometheus
     - node_exporter
     - grafana
