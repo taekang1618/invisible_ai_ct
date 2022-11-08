@@ -1,0 +1,4 @@
+- name: Download nginx
+    apt:
+    pkg:
+      -  nginx
