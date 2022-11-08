@@ -1,3 +1,4 @@
+---
 - name: Create prometheus user
   user:
     name: prometheus

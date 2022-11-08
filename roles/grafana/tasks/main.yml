@@ -1,3 +1,4 @@
+---
 - name: Download adduser libfontconfig
   apt:
     pkg:

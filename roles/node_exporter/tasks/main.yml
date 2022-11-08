@@ -1,3 +1,4 @@
+---
 - name: Create node_exporter user
   user:
     name: node_exporter

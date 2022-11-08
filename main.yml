@@ -3,15 +3,19 @@
   hosts: localhost
   gather_facts: False
   tasks:
+  - debug:
+      msg: "access key: {{ lookup('env', 'AWS_ACCESS_KEY') }}"
   - name: Launch instance
-    ec2:
+    ec2_instance:
+      aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+      aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
       key_name: tk_personal
-      group: launch-wizard-1
+      security_group: launch-wizard-1
       instance_type: t2.micro
-      image: ami-017fecd1353bcc96e
+      image_id: ami-017fecd1353bcc96e
       wait: true
       region: us-west-2
-      register: ec2
+    register: ec2
   - name: Print all ec2 variables
     debug: var=ec2
   - name: Get the Ip address
