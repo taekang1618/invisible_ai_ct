@@ -15,11 +15,11 @@ Install boto3
 Set environment variables:
 ```
 # Configure directories
-export SSH_KEYDIR=$HOME/.secrets
+export SSH_KEYDIR={ secrets_dirctory }
 
 # Configure AWS
-export AWS_ACCESS_KEY={aws_access_key}
-export AWS_SECRET_KEY={aws_secret_key}
+export AWS_ACCESS_KEY={ aws_access_key }
+export AWS_SECRET_KEY={ aws_secret_key }
 ```
 and create a `.pem` file for ssh-ing into your provisioned ec2 instance.
 
