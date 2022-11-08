@@ -55,4 +55,4 @@
 - name: Restart prometheus
   systemd:
     name: prometheus
-      state: restarted
+    state: restarted
