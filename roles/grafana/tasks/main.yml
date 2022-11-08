@@ -1,14 +1,14 @@
 - name: Download adduser libfontconfig
-    apt:
-      pkg:
-      - adduser
-      - libfontconfig
+  apt:
+    pkg:
+    - adduser
+    - libfontconfig
 - name: Download grafana
-    apt:
-      deb: https://dl.grafana.com/enterprise/release/grafana-enterprise_9.2.3_amd64.deb
+  apt:
+    deb: https://dl.grafana.com/enterprise/release/grafana-enterprise_9.2.3_amd64.deb
 - name: Start grafana
-    systemd:
-      state: started
-      name: grafana-server
-      daemon_reload: yes
-      enabled: yes
+  systemd:
+    state: started
+    name: grafana-server
+    daemon_reload: yes
+    enabled: yes
